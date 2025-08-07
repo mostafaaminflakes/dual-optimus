@@ -1,0 +1,50 @@
+{
+    "name": "mostafaaminflakes/dual-optimus",
+    "description": "Dual Optimus - ID obfuscation with 64-bit support while maintaining 32-bit compatibility",
+    "type": "library",
+    "keywords": ["id", "obfuscation", "encoding", "laravel", "64-bit", "32-bit"],
+    "homepage": "https://github.com/mostafaaminflakes/dual-optimus",
+    "license": "MIT",
+    "version": "1.0.0",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Mostafa Amin",
+            "email": "ms.amin@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "ext-gmp": "*",
+        "jenssegers/optimus": "^1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0|^11.0|^12.0",
+        "orchestra/testbench": "^8.0|^9.0|^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MostafaAminFlakes\\DualOptimus\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MostafaAminFlakes\\DualOptimus\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MostafaAminFlakes\\DualOptimus\\DualOptimusServiceProvider"
+            ],
+            "aliases": {
+                "DualOptimus": "MostafaAminFlakes\\DualOptimus\\Facades\\DualOptimus"
+            }
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    }
+}
