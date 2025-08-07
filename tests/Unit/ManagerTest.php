@@ -2,11 +2,11 @@
 
 namespace MostafaAminFlakes\DualOptimus\Tests\Unit;
 
-use MostafaAminFlakes\DualOptimus\Tests\TestCase;
+use InvalidArgumentException;
+use MostafaAminFlakes\DualOptimus\DualOptimus;
 use MostafaAminFlakes\DualOptimus\DualOptimusManager;
 use MostafaAminFlakes\DualOptimus\DualOptimusServiceProvider;
-use MostafaAminFlakes\DualOptimus\DualOptimus;
-use InvalidArgumentException;
+use MostafaAminFlakes\DualOptimus\Tests\TestCase;
 
 class ManagerTest extends TestCase
 {
@@ -15,7 +15,7 @@ class ManagerTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        
+
         $this->manager = app('dual-optimus');
     }
 
@@ -29,7 +29,7 @@ class ManagerTest extends TestCase
     public function test_get_connections(): void
     {
         $connections = $this->manager->getConnections();
-        
+
         $this->assertIsArray($connections);
         $this->assertContains('main', $connections);
         $this->assertContains('legacy', $connections);
@@ -39,14 +39,14 @@ class ManagerTest extends TestCase
     public function test_default_connection(): void
     {
         $connection = $this->manager->connection();
-        
+
         $this->assertInstanceOf(DualOptimus::class, $connection);
-        
+
         // Test that it works
         $value = 12345;
         $encoded = $connection->encode($value);
         $decoded = $connection->decode($encoded);
-        
+
         $this->assertEquals($value, $decoded);
     }
 
@@ -55,15 +55,15 @@ class ManagerTest extends TestCase
     {
         $mainConnection = $this->manager->connection('main');
         $testConnection = $this->manager->connection('legacy');
-        
+
         $this->assertInstanceOf(DualOptimus::class, $mainConnection);
         $this->assertInstanceOf(DualOptimus::class, $testConnection);
-        
+
         // Both should work the same way with same config
         $value = 54321;
         $mainEncoded = $mainConnection->encode($value);
         $testEncoded = $testConnection->encode($value);
-        
+
         $this->assertEquals($mainEncoded, $testEncoded);
         $this->assertEquals($value, $mainConnection->decode($mainEncoded));
         $this->assertEquals($value, $testConnection->decode($testEncoded));
@@ -74,7 +74,7 @@ class ManagerTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Optimus connection [nonexistent] not configured.');
-        
+
         $this->manager->connection('nonexistent');
     }
 
@@ -83,10 +83,10 @@ class ManagerTest extends TestCase
     {
         // Test that manager delegates to default connection
         $value = 98765;
-        
+
         $encoded = $this->manager->encode($value);
         $decoded = $this->manager->decode($encoded);
-        
+
         $this->assertEquals($value, $decoded);
         $this->assertNotEquals($value, $encoded);
     }
@@ -97,7 +97,7 @@ class ManagerTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('No connection configured for 128-bit operations.');
 
-        $app = new \Illuminate\Container\Container();
+        $app = new \Illuminate\Container\Container;
 
         $app['config'] = new \Illuminate\Config\Repository([
             'dual-optimus' => [

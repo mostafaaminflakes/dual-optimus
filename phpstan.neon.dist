@@ -8,4 +8,5 @@ parameters:
         - config
         - tests
     tmpDir: build/phpstan
-    checkMissingIterableValueType: false
+    ignoreErrors:
+        - identifier: missingType.iterableValue

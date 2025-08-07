@@ -2,15 +2,13 @@
 
 namespace MostafaAminFlakes\DualOptimus;
 
-use InvalidArgumentException;
 use Illuminate\Support\Manager;
+use InvalidArgumentException;
 
 class DualOptimusManager extends Manager
 {
     /**
      * Get the default driver name.
-     *
-     * @return string
      */
     public function getDefaultDriver(): string
     {
@@ -20,14 +18,13 @@ class DualOptimusManager extends Manager
     /**
      * Create a driver instance for the given connection name.
      *
-     * @param string $name
-     * @return \MostafaAminFlakes\DualOptimus\DualOptimus
+     * @param  string  $name
      *
      * @throws \InvalidArgumentException
      */
     protected function createDriver($name): DualOptimus
     {
-        if (!$this->config->get("dual-optimus.connections.{$name}")) {
+        if (! $this->config->get("dual-optimus.connections.{$name}")) {
             throw new InvalidArgumentException("Optimus connection [{$name}] not configured.");
         }
 
@@ -41,8 +38,6 @@ class DualOptimusManager extends Manager
     /**
      * Get the configuration for a connection of a specific size (32 or 64).
      *
-     * @param int $size
-     * @return array
      *
      * @throws InvalidArgumentException
      */
@@ -71,11 +66,8 @@ class DualOptimusManager extends Manager
 
     /**
      * Get a driver instance by connection name.
-     *
-     * @param string|null $name
-     * @return \MostafaAminFlakes\DualOptimus\DualOptimus
      */
-    public function connection(string $name = null): DualOptimus
+    public function connection(?string $name = null): DualOptimus
     {
         return $this->driver($name);
     }
@@ -83,8 +75,8 @@ class DualOptimusManager extends Manager
     /**
      * Proxy dynamic method calls to the default driver.
      *
-     * @param string $method
-     * @param array $parameters
+     * @param  string  $method
+     * @param  array  $parameters
      * @return mixed
      */
     public function __call($method, $parameters)

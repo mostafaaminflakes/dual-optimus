@@ -41,18 +41,18 @@ return [
 
         'main' => [
             // 64-bit configuration
-            'prime'      => env('DUAL_OPTIMUS_PRIME_64', 9223372036854775783),
-            'inverse'    => env('DUAL_OPTIMUS_INVERSE_64', 9223372036854775783),
-            'random'     => env('DUAL_OPTIMUS_RANDOM_64', 4611686018427387904),
-            'size'       => 64,
+            'prime' => env('DUAL_OPTIMUS_PRIME_64', 9223372036854775783),
+            'inverse' => env('DUAL_OPTIMUS_INVERSE_64', 9223372036854775783),
+            'random' => env('DUAL_OPTIMUS_RANDOM_64', 4611686018427387904),
+            'size' => 64,
         ],
 
         'legacy' => [
             // 32-bit configuration (for backward compatibility)
-            'prime'     => env('DUAL_OPTIMUS_PRIME_32', 1580030173),
-            'inverse'   => env('DUAL_OPTIMUS_INVERSE_32', 59260789),
-            'random'    => env('DUAL_OPTIMUS_RANDOM_32', 1163945558),
-            'size'      => 32,
+            'prime' => env('DUAL_OPTIMUS_PRIME_32', 1580030173),
+            'inverse' => env('DUAL_OPTIMUS_INVERSE_32', 59260789),
+            'random' => env('DUAL_OPTIMUS_RANDOM_32', 1163945558),
+            'size' => 32,
         ],
 
     ],

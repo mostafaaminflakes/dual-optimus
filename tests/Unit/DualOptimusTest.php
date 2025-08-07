@@ -2,21 +2,22 @@
 
 namespace MostafaAminFlakes\DualOptimus\Tests\Unit;
 
-use MostafaAminFlakes\DualOptimus\Tests\TestCase;
+use InvalidArgumentException;
+use Jenssegers\Optimus\Optimus;
 use MostafaAminFlakes\DualOptimus\DualOptimus;
 use MostafaAminFlakes\DualOptimus\DualOptimusManager;
-use Jenssegers\Optimus\Optimus;
-use InvalidArgumentException;
+use MostafaAminFlakes\DualOptimus\Tests\TestCase;
 
 class DualOptimusTest extends TestCase
 {
     private DualOptimusManager $manager;
+
     private DualOptimus $optimus;
 
     protected function setUp(): void
     {
         parent::setUp();
-        
+
         $this->manager = app('dual-optimus');
         $this->optimus = $this->manager->connection('main');
     }
@@ -25,11 +26,11 @@ class DualOptimusTest extends TestCase
     public function test_encode_decode_32bit_values(): void
     {
         $originalValues = [1, 100, 1000, 2147483647]; // Max 32-bit value
-        
+
         foreach ($originalValues as $value) {
             $encoded = $this->optimus->encode($value);
             $decoded = $this->optimus->decode($encoded);
-            
+
             $this->assertEquals($value, $decoded);
             $this->assertNotEquals($value, $encoded); // Should be obfuscated
         }
@@ -41,13 +42,13 @@ class DualOptimusTest extends TestCase
         $originalValues = [
             2147483648,  // Just above 32-bit limit
             4294967296,  // 2^32
-            9223372036854775807  // Max 64-bit value
+            9223372036854775807,  // Max 64-bit value
         ];
-        
+
         foreach ($originalValues as $value) {
             $encoded = $this->optimus->encode($value);
             $decoded = $this->optimus->decode($encoded);
-            
+
             $this->assertEquals($value, $decoded);
             $this->assertNotEquals($value, $encoded);
         }
@@ -59,7 +60,7 @@ class DualOptimusTest extends TestCase
         $value = 9876543210;
         $encoded = $this->optimus->encode64($value);
         $decoded = $this->optimus->decode64($encoded);
-        
+
         $this->assertEquals($value, $decoded);
     }
 
@@ -76,10 +77,10 @@ class DualOptimusTest extends TestCase
         $connections = $this->manager->getConnections();
         $this->assertContains('main', $connections);
         $this->assertContains('legacy', $connections);
-        
+
         $mainConnection = $this->manager->connection('main');
         $testConnection = $this->manager->connection('legacy');
-        
+
         $this->assertInstanceOf(DualOptimus::class, $mainConnection);
         $this->assertInstanceOf(DualOptimus::class, $testConnection);
     }
@@ -89,7 +90,7 @@ class DualOptimusTest extends TestCase
     {
         $defaultConnection = $this->manager->connection();
         $mainConnection = $this->manager->connection('main');
-        
+
         // Both should encode the same way since they use the same config
         $value = 12345;
         $this->assertEquals(
@@ -103,12 +104,12 @@ class DualOptimusTest extends TestCase
     {
         $optimus32 = $this->optimus->getOptimus32();
         $this->assertInstanceOf(Optimus::class, $optimus32);
-        
+
         // Test that it works with the underlying Optimus
         $value = 12345;
         $encoded = $this->optimus->encode($value);
         $optimusEncoded = $optimus32->encode($value);
-        
+
         $this->assertEquals($encoded, $optimusEncoded);
     }
 

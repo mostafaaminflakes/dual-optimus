@@ -31,10 +31,10 @@ class DualOptimusServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([
-            __DIR__.'/../config/dual-optimus.php' => config_path('dual-optimus.php'),
+            __DIR__ . '/../config/dual-optimus.php' => config_path('dual-optimus.php'),
         ], 'config');
 
-        $this->mergeConfigFrom(__DIR__.'/../config/dual-optimus.php', 'dual-optimus');
+        $this->mergeConfigFrom(__DIR__ . '/../config/dual-optimus.php', 'dual-optimus');
     }
 
     /**

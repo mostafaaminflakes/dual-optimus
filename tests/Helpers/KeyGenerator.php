@@ -24,7 +24,7 @@ class KeyGenerator
      */
     public static function generate(int $size = 32): array
     {
-        if (!in_array($size, [32, 64])) {
+        if (! in_array($size, [32, 64])) {
             throw new InvalidArgumentException('Size must be 32 or 64.');
         }
 
@@ -40,10 +40,10 @@ class KeyGenerator
         $random = random_int(0, $size === 32 ? 0xFFFFFFFF : PHP_INT_MAX);
 
         return [
-            'prime'   => gmp_strval($prime),
+            'prime' => gmp_strval($prime),
             'inverse' => gmp_strval($inverse),
-            'random'  => $random,
-            'size'    => $size,
+            'random' => $random,
+            'size' => $size,
         ];
     }
 }
