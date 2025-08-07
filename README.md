@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mostafaaminflakes/dual-optimus.svg?style=flat-square)](https://packagist.org/packages/mostafaaminflakes/dual-optimus)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/mostafaaminflakes/dual-optimus/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/mostafaaminflakes/dual-optimus/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/mostafaaminflakes/dual-optimus/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/mostafaaminflakes/dual-optimus/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/mostafaaminflakes/dual-optimus.svg?style=flat-square)](https://packagist.org/packages/mostafaaminflakes/dual-optimus)
+[![Total Downloads](https://img.shields.io/packagist/dt/mostafaaminflakes/dual-optimus.svg?style=flat-square)](https://packagist.org/packages/mostafaaminflakes/dual-optimus/stats)
 [![License](https://img.shields.io/packagist/l/mostafaaminflakes/dual-optimus.svg?style=flat-square)](https://packagist.org/packages/mostafaaminflakes/dual-optimus)
 [![PHP Version Require](https://img.shields.io/packagist/php-v/mostafaaminflakes/dual-optimus?style=flat-square)](https://packagist.org/packages/mostafaaminflakes/dual-optimus)
 
