@@ -6,6 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/mostafaaminflakes/dual-optimus.svg?style=flat-square)](https://packagist.org/packages/mostafaaminflakes/dual-optimus/stats)
 [![License](https://img.shields.io/packagist/l/mostafaaminflakes/dual-optimus.svg?style=flat-square)](https://packagist.org/packages/mostafaaminflakes/dual-optimus)
 [![PHP Version Require](https://img.shields.io/packagist/php-v/mostafaaminflakes/dual-optimus?style=flat-square)](https://packagist.org/packages/mostafaaminflakes/dual-optimus)
+[![codecov](https://codecov.io/gh/mostafaaminflakes/dual-optimus/branch/main/graph/badge.svg)](https://codecov.io/gh/mostafaaminflakes/dual-optimus)
 
 A powerful PHP package that extends [Jenssegers\Optimus](https://github.com/jenssegers/optimus) to support both 64-bit and 32-bit ID obfuscation with intelligent auto-detection, multiple connections, and seamless Laravel integration.
 
