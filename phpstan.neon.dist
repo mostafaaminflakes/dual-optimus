@@ -8,6 +8,4 @@ parameters:
         - config
         - tests
     tmpDir: build/phpstan
-    checkOctaneCompatibility: true
-    checkModelProperties: true
     checkMissingIterableValueType: false
