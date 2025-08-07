@@ -5,6 +5,12 @@ namespace MostafaAminFlakes\DualOptimus;
 use Illuminate\Support\Manager;
 use InvalidArgumentException;
 
+/**
+ * @method int encode(int $value)
+ * @method int decode(int|string $value)
+ * @method int encode64(int|string $value)
+ * @method int decode64(int|string $value)
+ */
 class DualOptimusManager extends Manager
 {
     /**
@@ -57,7 +63,7 @@ class DualOptimusManager extends Manager
     /**
      * Get the names of all configured connections.
      *
-     * @return array<int, string>
+     * @return array<int, int|string>
      */
     public function getConnections(): array
     {

@@ -30,7 +30,6 @@ class ManagerTest extends TestCase
     {
         $connections = $this->manager->getConnections();
 
-        $this->assertIsArray($connections);
         $this->assertContains('main', $connections);
         $this->assertContains('legacy', $connections);
     }

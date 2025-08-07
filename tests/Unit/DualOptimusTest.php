@@ -114,7 +114,7 @@ class DualOptimusTest extends TestCase
     }
 
     #[\PHPUnit\Framework\Attributes\Test]
-    public function it_throws_exception_if_value_is_negative()
+    public function it_throws_exception_if_value_is_negative(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Value must be a positive integer');
@@ -123,7 +123,7 @@ class DualOptimusTest extends TestCase
     }
 
     #[\PHPUnit\Framework\Attributes\Test]
-    public function it_throws_exception_if_value_exceeds_64bit_limit()
+    public function it_throws_exception_if_value_exceeds_64bit_limit(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Value exceeds 64-bit limit');

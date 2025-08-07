@@ -46,7 +46,7 @@ class DualOptimus
     {
         // Try 32-bit decode first
         try {
-            $decoded32 = $this->optimus32->decode($value);
+            $decoded32 = $this->optimus32->decode((int) $value);
             if ($decoded32 <= self::MAX_32_BIT && $this->optimus32->encode($decoded32) === $value) {
                 return $decoded32;
             }
