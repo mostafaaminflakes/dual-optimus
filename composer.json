@@ -21,7 +21,9 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^10.0|^11.0|^12.0",
-        "orchestra/testbench": "^8.0|^9.0|^10.0"
+        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "laravel/pint": "^1.0",
+        "phpstan/phpstan": "^1.10"
     },
     "autoload": {
         "psr-4": {
@@ -45,6 +47,8 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "analyse": "vendor/bin/phpstan analyse",
+        "format": "vendor/bin/pint"
     }
 }
