@@ -1,11 +1,11 @@
 # Dual Optimus
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/mostafaaminflakes/dual-optimus.svg?style=flat-square)](https://packagist.org/packages/mostafaaminflakes/dual-optimus)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/mostafaaminflakes/dual-optimus/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/mostafaaminflakes/dual-optimus/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/mostafaaminflakes/dual-optimus/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/mostafaaminflakes/dual-optimus/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/mostafaaminflakes/dual-optimus.svg?style=flat-square)](https://packagist.org/packages/mostafaaminflakes/dual-optimus/stats)
-[![License](https://img.shields.io/packagist/l/mostafaaminflakes/dual-optimus.svg?style=flat-square)](https://packagist.org/packages/mostafaaminflakes/dual-optimus)
-[![PHP Version Require](https://img.shields.io/packagist/php-v/mostafaaminflakes/dual-optimus?style=flat-square)](https://packagist.org/packages/mostafaaminflakes/dual-optimus)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/mostafaaminflakes/dual-optimus.svg)](https://packagist.org/packages/mostafaaminflakes/dual-optimus)
+[![PHP Version Require](https://img.shields.io/packagist/php-v/mostafaaminflakes/dual-optimus)](https://packagist.org/packages/mostafaaminflakes/dual-optimus)
+[![License](https://img.shields.io/packagist/l/mostafaaminflakes/dual-optimus.svg?style)](https://packagist.org/packages/mostafaaminflakes/dual-optimus)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/mostafaaminflakes/dual-optimus/run-tests.yml?branch=main&label=tests)](https://github.com/mostafaaminflakes/dual-optimus/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/mostafaaminflakes/dual-optimus/fix-php-code-style-issues.yml?branch=main&label=code%20style)](https://github.com/mostafaaminflakes/dual-optimus/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/mostafaaminflakes/dual-optimus.svg)](https://packagist.org/packages/mostafaaminflakes/dual-optimus/stats)
 [![codecov](https://codecov.io/gh/mostafaaminflakes/dual-optimus/branch/main/graph/badge.svg)](https://codecov.io/gh/mostafaaminflakes/dual-optimus)
 
 A powerful PHP package that extends [Jenssegers\Optimus](https://github.com/jenssegers/optimus) to support both 64-bit and 32-bit ID obfuscation with intelligent auto-detection, multiple connections, and seamless Laravel integration.
@@ -27,7 +27,7 @@ A powerful PHP package that extends [Jenssegers\Optimus](https://github.com/jens
 - **PHP**: 8.1 or higher
 - **Extensions**: `ext-gmp` (for 64-bit operations)
 - **Dependencies**: `jenssegers/optimus ^1.1`
-- **Laravel**: 9.0+ (optional, for Laravel integration)
+- **Laravel**: 10.0+ (optional, for Laravel integration)
 
 ## 📦 Installation
 
