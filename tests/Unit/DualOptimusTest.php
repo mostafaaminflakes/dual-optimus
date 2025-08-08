@@ -146,4 +146,34 @@ class DualOptimusTest extends TestCase
 
         $method->invokeArgs($this->optimus, [1, 'invalid']);
     }
+
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function test_decode_catch_block_with_invalid_32bit_value(): void
+    {
+        // Create a scenario where 32-bit decode fails but 64-bit succeeds
+        // We'll use a 64-bit encoded value that when passed to 32-bit decode will throw
+        $originalValue = 123456789;
+        
+        // Force 64-bit encoding
+        $encoded64 = $this->optimus->encode64($originalValue);
+        
+        // Now decode using the general decode method
+        // This should try 32-bit first (fail), then fallback to 64-bit (succeed)
+        $decoded = $this->optimus->decode($encoded64);
+        
+        $this->assertEquals($originalValue, $decoded);
+    }
+
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function test_decode_catch_block_with_corrupted_value(): void
+    {
+        // Test with a value that will cause 32-bit decode to throw but 64-bit to handle
+        // Use a string value that represents a large number
+        $largeEncodedValue = '9223372036854775000'; // Large 64-bit value
+        
+        $decoded = $this->optimus->decode($largeEncodedValue);
+        
+        // Should successfully decode using 64-bit fallback
+        $this->assertIsString($decoded);
+    }
 }

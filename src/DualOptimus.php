@@ -31,6 +31,14 @@ class DualOptimus
         );
     }
 
+    /**
+     * Encode a positive integer using 32-bit or 64-bit logic.
+     *
+     * @param  int  $value  Positive integer value.
+     * @return int|string Encoded value.
+     *
+     * @throws InvalidArgumentException
+     */
     public function encode(int $value): int|string
     {
         if ($value < 0) {
@@ -42,6 +50,12 @@ class DualOptimus
             : $this->encode64($value);
     }
 
+    /**
+     * Decode a previously encoded 32-bit or 64-bit value.
+     *
+     * @param  int|string  $value  Encoded value.
+     * @return int|string Decoded integer value.
+     */
     public function decode(int|string $value): int|string
     {
         // Try 32-bit decode first
@@ -57,6 +71,12 @@ class DualOptimus
         return $this->decode64($value);
     }
 
+    /**
+     * Encode a positive integer using 64-bit logic.
+     *
+     *
+     * @throws InvalidArgumentException
+     */
     public function encode64(int|string $value): string
     {
         if ($value < 0) {
@@ -70,13 +90,21 @@ class DualOptimus
         return $this->transform64BitValue($value, 'encode');
     }
 
+    /**
+     * Decode a 64-bit encoded value.
+     */
     public function decode64(int|string $value): string
     {
         return $this->transform64BitValue($value, 'decode');
     }
 
     /**
-     * @param  'encode'|'decode'  $mode
+     * Transform a value using 64-bit encode or decode logic.
+     *
+     * @param  int|string  $value  Value to transform.
+     * @param  'encode'|'decode'  $mode  Operation mode.
+     *
+     * @throws InvalidArgumentException
      */
     private function transform64BitValue(int|string $value, string $mode): string
     {
@@ -101,6 +129,9 @@ class DualOptimus
         return gmp_strval($result);
     }
 
+    /**
+     * Get the Optimus instance used for 32-bit operations.
+     */
     public function getOptimus32(): Optimus
     {
         return $this->optimus32;
