@@ -5,7 +5,7 @@
     "keywords": ["id", "obfuscation", "encoding", "laravel", "64-bit", "32-bit"],
     "homepage": "https://github.com/mostafaaminflakes/dual-optimus",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "authors": [
