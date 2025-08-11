@@ -12,9 +12,12 @@ class DualOptimusServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton('dual-optimus', function ($app) {
-            return new DualOptimusManager($app);
-        });
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/dual-optimus.php',
+            'dual-optimus'
+        );
+
+        $this->app->singleton('dual-optimus', fn ($app) => new DualOptimusManager($app));
 
         $this->app->alias('dual-optimus', DualOptimusManager::class);
 
@@ -30,11 +33,12 @@ class DualOptimusServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->publishes([
-            __DIR__ . '/../config/dual-optimus.php' => config_path('dual-optimus.php'),
-        ], 'config');
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/dual-optimus.php' => config_path('dual-optimus.php'),
+            ], 'dual-optimus');
+        }
 
-        $this->mergeConfigFrom(__DIR__ . '/../config/dual-optimus.php', 'dual-optimus');
     }
 
     /**
